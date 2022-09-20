@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://haneen.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_74847546b5f9412aa18b33be72f7ce10 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_1c3c7d9d968a4526ad920c2585b7f0ed }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_24e4c4356fea453c95be90f5e55ebfdb }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_07bfe97e55bd4ca899194098d3510925 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: haneen.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_74847546b5f9412aa18b33be72f7ce10 }}/longurl:${{ github.sha }}
+        tags: haneen.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_24e4c4356fea453c95be90f5e55ebfdb }}/longurl:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'testlongurl'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7b4d92a5e3ff472b9a1e3e40a9fb8cba }}
-        images: 'haneen.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_74847546b5f9412aa18b33be72f7ce10 }}/longurl:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_afa27a78414b4b1cab78540df62e1e00 }}
+        images: 'haneen.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_24e4c4356fea453c95be90f5e55ebfdb }}/longurl:${{ github.sha }}'
