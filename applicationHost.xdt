@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<system.webServer>
+	<security>
+	<requestFiltering allowDoubleEscaping="true"  xdt:Transform="SetAttributes(allowDoubleEscaping)">
+	<requestLimits xdt:Transform="InsertIfMissing">
+    </requestLimits>
+	</requestFiltering>
+	</security>
+	</system.webServer>
+	<system.webServer>
+	<security>
+	<requestFiltering>
+	<requestLimits maxQueryString="32768"  xdt:Transform="InsertIfMissing(maxQueryString)">
+    </requestLimits>
+	</requestFiltering>
+	</security>
+	</system.webServer>
+</configuration>
